@@ -11,14 +11,33 @@ const getItems = function() {
     return 0
   }
 
+  const getLocation = function(element) {
+    const metas = element ? select(element, 'meta[itemprop="address"]') : []
+    return metas
+      .map(function(meta) {
+        return meta.getAttribute('content')
+      })
+      .join(' / ')
+  }
+
+  const getDate = function(element) {
+    if (element) {
+      const meta = select(element, 'p[itemprop="availabilityStarts"]')
+      return meta ? meta[0].innerText.trim() : ''
+    }
+    return ''
+  }
+
   return select(document, 'section.tabsContent > ul > li > a')
     .map(function(element) {
       return {
-        'title': element.getAttribute('title'),
-        'href': element.getAttribute('href'),
-        'price': getPrice(element)
-      };
-    });
+        title: element.getAttribute('title'),
+        href: element.getAttribute('href'),
+        price: getPrice(element),
+        location: getLocation(element),
+        date: getDate(element)
+      }
+    })
 
 }
 

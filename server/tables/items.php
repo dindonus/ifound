@@ -3,21 +3,16 @@
 class TableItems extends Table {
 
 	public $champ = [
-		'player' => ['table', 'players'],
-		'mail' => ['varchar', 50, null, true],
-		'confirmed' => ['bool', null, false],
-		'sound' => ['bool', null, true],
-		'music' => ['bool', null, true],
-		'language' => ['char', 2],
-		'age' => ['smallint', 'unsigned'],
-		'source' => ['varchar', 20, null, true],
+		'reference' => ['bigint', 'unsigned'],
+		'title' => ['varchar', 255],
+		'price' => ['int', 'unsigned'],
+		'href' => ['varchar', 255],
 		'created' => ['datetime'],
-		'actived' => ['date', null, null, true],
+		'disabled' => ['datetime', null, null, true],
 	];
 
 	public $unique = [
-		'player',
-		'mail',
+		'reference',
 	];
 
 }
