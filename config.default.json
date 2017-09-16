@@ -1,0 +1,34 @@
+{
+	"project": {
+		"name": "iFound",
+		"url": "http://ifound.dev/",
+		"timezone": "Europe/Paris",
+		"debug": true,
+		"monitoring": 0
+	},
+	"sql": {
+		"host": "localhost",
+		"database": "ifound",
+		"user": "root",
+		"password": "admin",
+		"debug": false,
+		"monitoring": false
+	},
+	"memcached": {
+		"host": "127.0.0.1",
+		"port": "11211"
+	},
+	"session": {
+		"memcached": true,
+		"expire": 12000,
+		"name": "ecp-session",
+		"subdomain": true
+	},
+	"info": {
+		"cache": []
+	},
+	"socket": {
+		"url": "ws://localhost:80/balls/socket",
+		"server-port": 8080
+	}
+}

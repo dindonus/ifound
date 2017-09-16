@@ -1,4 +1,3 @@
-
 const getItems = function() {
 
   const select = function(parent, selector) {
