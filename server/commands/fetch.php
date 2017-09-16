@@ -1,29 +1,33 @@
 <?php
 
+use Carbon\Carbon;
+
 class Page extends ParentCommand {
 
   public function prepare() {
 
-    $base = "https://www.leboncoin.fr/telephonie/offres/ile_de_france/";
-    $page = 1;
-    $url = "$base?o=$page&q=iphone";
-    $output = [];
-    exec("casperjs casper/index.js --url=$url", $output);
-
-    $items = implode("\n", $output);
-    $items = json_decode($items, true);
-
-    echo count($items)." found\n";
-
-    array_map($this->saveItem, $items);
+    for ($page = 5; $page <= 60; $page++) {
+      echo "Page $page: ";
+      $this->scanPage($page);
+    }
 
     return new Stop();
 
   }
 
-  protected function saveItem($item) {
+  protected function scanPage($page) {
 
-    
+    $items = $this->package('casper')->getItems('iphone', $page);
+    echo count($items)." found / ";
+
+    $items = $this->package('filter')->items($items);
+    echo count($items)." matchs / ";
+
+    $inserted = 0;
+    foreach ($items as $item) {
+      $inserted += $this->table('items')->option('ignore')->insert($item);
+    }
+    echo "$inserted inserted\n";
 
   }
 

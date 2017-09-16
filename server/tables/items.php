@@ -6,7 +6,9 @@ class TableItems extends Table {
 		'reference' => ['bigint', 'unsigned'],
 		'title' => ['varchar', 255],
 		'price' => ['int', 'unsigned'],
+		'location' => ['varchar', 255],
 		'href' => ['varchar', 255],
+		'published' => ['datetime'],
 		'created' => ['datetime'],
 		'disabled' => ['datetime', null, null, true],
 	];

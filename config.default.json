@@ -7,7 +7,7 @@
 		"monitoring": 0
 	},
 	"sql": {
-		"host": "localhost",
+		"host": "127.0.0.1",
 		"database": "ifound",
 		"user": "root",
 		"password": "admin",
