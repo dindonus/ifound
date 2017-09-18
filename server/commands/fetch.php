@@ -6,7 +6,7 @@ class Page extends ParentCommand {
 
   public function prepare() {
 
-    for ($page = 5; $page <= 60; $page++) {
+    for ($page = 1; $page <= 100; $page++) {
       echo "Page $page: ";
       $this->scanPage($page);
     }

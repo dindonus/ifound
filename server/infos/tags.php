@@ -10,58 +10,92 @@ class InfoTags extends Information {
 			1 => [
 				'slug' => 'iphone-4',
 				'name' => "iPhone 4",
+				'type' => 'model',
+				'matches' => ['4'],
 			],
 			2 => [
 				'slug' => 'iphone-4s',
-				'name' => "iPhone 4S",
+				'name' => "iPhone 4s",
+				'type' => 'model',
+				'matches' => ['4s', '4 s'],
 			],
 			3 => [
 				'slug' => 'iphone-5',
 				'name' => "iPhone 5",
+				'type' => 'model',
+				'matches' => ['5'],
 			],
 			4 => [
 				'slug' => 'iphone-5s',
-				'name' => "iPhone 5S",
+				'name' => "iPhone 5s",
+				'type' => 'model',
+				'matches' => ['5s', '5 s'],
 			],
 			5 => [
-				'slug' => 'iphone-6',
-				'name' => "iPhone 6",
+				'slug' => 'iphone-5c',
+				'name' => "iPhone 5c",
+				'type' => 'model',
+				'matches' => ['5c', '5 c'],
 			],
 			6 => [
-				'slug' => 'iphone-6-plus',
-				'name' => "iPhone 6 Plus",
+				'slug' => 'iphone-6',
+				'name' => "iPhone 6",
+				'type' => 'model',
+				'matches' => ['6'],
 			],
 			7 => [
-				'slug' => 'iphone-se',
-				'name' => "iPhone SE",
+				'slug' => 'iphone-6-plus',
+				'name' => "iPhone 6 Plus",
+				'type' => 'model',
+				'matches' => ['6 plus', '6plus'],
 			],
 			8 => [
-				'slug' => 'iphone-6s',
-				'name' => "iPhone 6S",
+				'slug' => 'iphone-se',
+				'name' => "iPhone SE",
+				'type' => 'model',
+				'matches' => ['se'],
 			],
 			9 => [
-				'slug' => 'iphone-6s-plus',
-				'name' => "iPhone 6S Plus",
+				'slug' => 'iphone-6s',
+				'name' => "iPhone 6s",
+				'type' => 'model',
+				'matches' => ['6s', '6 s'],
 			],
 			10 => [
-				'slug' => 'iphone-7',
-				'name' => "iPhone 7",
+				'slug' => 'iphone-6s-plus',
+				'name' => "iPhone 6s Plus",
+				'type' => 'model',
+				'matches' => ['6s plus', '6 s plus'],
 			],
 			11 => [
-				'slug' => 'iphone-7-plus',
-				'name' => "iPhone 7 Plus",
+				'slug' => 'iphone-7',
+				'name' => "iPhone 7",
+				'type' => 'model',
+				'matches' => ['7'],
 			],
 			12 => [
-				'slug' => 'iphone-8',
-				'name' => "iPhone 8",
+				'slug' => 'iphone-7-plus',
+				'name' => "iPhone 7 Plus",
+				'type' => 'model',
+				'matches' => ['7 plus', '7plus'],
 			],
 			13 => [
-				'slug' => 'iphone-8-plus',
-				'name' => "iPhone 8 Plus",
+				'slug' => 'iphone-8',
+				'name' => "iPhone 8",
+				'type' => 'model',
+				'matches' => ['8'],
 			],
 			14 => [
+				'slug' => 'iphone-8-plus',
+				'name' => "iPhone 8 Plus",
+				'type' => 'model',
+				'matches' => ['8 plus', '8plus'],
+			],
+			15 => [
 				'slug' => 'iphone-x',
 				'name' => "iPhone X",
+				'type' => 'model',
+				'matches' => ['x', '10'],
 			],
 
 			// Capacity
@@ -118,6 +152,20 @@ class InfoTags extends Information {
 			207 => [
 				'slug' => 'red',
 				'name' => 'Red Edition',
+			],
+
+			// Quality
+			300 => [
+				'slug' => 'blister',
+				'name' => 'Blister',
+			],
+			301 => [
+				'slug' => 'new',
+				'name' => 'Neuf',
+			],
+			302 => [
+				'slug' => 'excellent',
+				'name' => 'Excellent état',
 			],
 
 		];
