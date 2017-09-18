@@ -24,8 +24,8 @@ class PackageFormat extends Package {
 
 	public function getModelFromTitle($title) {
 
-		$title = strtolower($title);
-		$pattern = 'iphone\s*(\d|se|x)\s*(s|c)?\s*(plus|\+)?';
+		$title = strtolower($title).' ';
+		$pattern = 'iphone\s*(\d|x|se|c)\s*(s\s)?\s*(plus|\+)?';
 		$matches = [];
 
 		preg_match("/$pattern/i", $title, $matches);
@@ -35,18 +35,37 @@ class PackageFormat extends Package {
 			case 2:
 				return 'iphone-'.$matches[1];
 			case 3:
-				return 'iphone-'.$matches[1].$matches[2];
+				return 'iphone-'.$matches[1].trim($matches[2]);
 			case 4:
-				return 'iphone-'.$matches[1].$matches[2].'-plus';
+				return 'iphone-'.$matches[1].trim($matches[2]).'-plus';
 		}
 
-		return 'iphone-'.$matches[1];
+		return null;
 
 	}
 
 	public function getCapacityFromTitle($title) {
 
 		$pattern = '(16|32|64|128|256)\s*(g)';
+		$matches = [];
+
+		preg_match("/$pattern/i", $title, $matches);
+		//print_r($matches);
+
+		if (count($matches) > 1) {
+			return $matches[1];
+		}
+
+		return null;
+
+	}
+
+	public function getColorFromTitle($title) {
+
+		return 'black';
+
+		$title = " $title ";
+		$pattern = '\s+()\s+';
 		$matches = [];
 
 		preg_match("/$pattern/i", $title, $matches);
