@@ -1,5 +1,7 @@
 /front-end/node_modules
+/front-end/build
 /back-end/node_modules
+/back-end/database
 /back-end/ecp
 /back-end/config.json
 /.git

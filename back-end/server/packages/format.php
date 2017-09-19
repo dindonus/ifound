@@ -22,6 +22,14 @@ class PackageFormat extends Package {
 
   }
 
+	public function item($item) {
+		return [
+			'model' => $this->getModelFromTitle($item['title']),
+			'capacity' => $this->getCapacityFromTitle($item['title']),
+			'color' => $this->getColorFromTitle($item['title']),
+		] + $item;
+	}
+
 	public function getModelFromTitle($title) {
 
 		$title = strtolower($title).' ';
@@ -62,17 +70,16 @@ class PackageFormat extends Package {
 
 	public function getColorFromTitle($title) {
 
-		return 'black';
-
 		$title = " $title ";
-		$pattern = '\s+()\s+';
-		$matches = [];
+		$colors = $this->info('tags')->getBy('type', 'color');
 
-		preg_match("/$pattern/i", $title, $matches);
-		//print_r($matches);
-
-		if (count($matches) > 1) {
-			return $matches[1];
+		foreach ($colors as $color) {
+			foreach ($color['matches'] as $search) {
+				$pattern = '\s+('.$search.')\s+';
+				if (preg_match("/$pattern/i", $title)) {
+					return $color['slug'];
+				}
+			}
 		}
 
 		return null;

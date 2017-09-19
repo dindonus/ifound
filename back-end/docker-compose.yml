@@ -4,6 +4,8 @@ mysql:
     MYSQL_ROOT_PASSWORD: admin
   ports:
     - "3306:3306"
+  volumes:
+    - ./database:/var/lib/mysql
 adminer:
   image: adminer
   environment:

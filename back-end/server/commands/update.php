@@ -11,24 +11,21 @@ class Page extends ParentCommand {
       ->update();
 
     $items = $this->table('items')
-      //->where('model', null)
       //->where('id', 281)
       //->limit(500)
       ->get();
 
     foreach ($items as $item) {
-      $model = $this->package('format')->getModelFromTitle($item['title']);
-      $capacity = $this->package('format')->getCapacityFromTitle($item['title']);
-      $color = $this->package('format')->getColorFromTitle($item['title']);
+      $item = $this->package('format')->item($item);
+      $model = $this->info('tags')->get($item['model']);
 
-      echo "$color --> ".$item['title']."\n";
-
-      $model = $this->info('tags')->get($model);
+      echo $item['color']." --> ".$item['title']."\n";
 
       if ($model) {
         $this->table('items')
           ->set('model', $model['slug'])
-          ->set('capacity', $capacity)
+          ->set('capacity', $item['capacity'])
+          ->set('color', $item['color'])
           ->update($item);
         }
     }

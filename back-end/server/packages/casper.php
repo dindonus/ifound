@@ -7,7 +7,7 @@ class PackageCasper extends Package {
 		$base = "https://www.leboncoin.fr/telephonie/offres/ile_de_france/";
 		$url = "$base?o=$page&q=$search";
 		$output = [];
-		exec("casperjs casper/index.js --url=$url", $output);
+		exec("casperjs ".PATH."casper/index.js --url=$url", $output);
 
 		$items = implode("\n", $output);
 		$items = json_decode($items, true);

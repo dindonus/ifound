@@ -23,11 +23,14 @@ class Page extends ParentCommand {
     $items = $this->package('filter')->items($items);
     echo count($items)." matchs / ";
 
+    $date = null;
     $inserted = 0;
     foreach ($items as $item) {
+      $date = $date === null ? mb_substr($item['published'], 0, -3) : $date;
+      $item = $this->package('format')->item($item);
       $inserted += $this->table('items')->option('ignore')->insert($item);
     }
-    echo "$inserted inserted\n";
+    echo "$inserted inserted @$date\n";
 
   }
 
