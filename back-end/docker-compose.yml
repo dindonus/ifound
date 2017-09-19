@@ -1,3 +1,21 @@
+nginx:
+  image: tutum/nginx
+  ports:
+    - "80:80"
+  links:
+    - phpfpm
+  volumes:
+    - ./nginx/dev.conf:/etc/nginx/sites-enabled/site.conf
+    - ./:/usr/share/nginx/html
+phpfpm:
+  image: phpfpm-mysqli-memcached
+  ports:
+    - "9000:9000"
+  links:
+    - memcached
+    - mysql
+  volumes:
+    - ./:/usr/share/nginx/html
 mysql:
   image: mysql
   environment:
@@ -6,6 +24,10 @@ mysql:
     - "3306:3306"
   volumes:
     - ./database:/var/lib/mysql
+memcached:
+  image: memcached
+  ports:
+    - "11211:11211"
 adminer:
   image: adminer
   environment:

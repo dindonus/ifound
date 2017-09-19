@@ -7,7 +7,7 @@
 		"monitoring": 0
 	},
 	"sql": {
-		"host": "127.0.0.1",
+		"host": "mysql",
 		"database": "ifound",
 		"user": "root",
 		"password": "admin",
@@ -15,7 +15,7 @@
 		"monitoring": false
 	},
 	"memcached": {
-		"host": "127.0.0.1",
+		"host": "memcached",
 		"port": "11211"
 	},
 	"session": {
