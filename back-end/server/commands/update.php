@@ -21,7 +21,7 @@ class Page extends ParentCommand {
       $capacity = $this->package('format')->getCapacityFromTitle($item['title']);
       $color = $this->package('format')->getColorFromTitle($item['title']);
 
-      echo "$model --> ".$item['title']."\n";
+      echo "$color --> ".$item['title']."\n";
 
       $model = $this->info('tags')->get($model);
 

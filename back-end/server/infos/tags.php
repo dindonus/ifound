@@ -7,6 +7,7 @@ class InfoTags extends Information {
 		$this->igInfo = [
 
 			// Models
+			/*
 			1 => [
 				'slug' => 'iphone-4',
 				'name' => "iPhone 4",
@@ -17,6 +18,7 @@ class InfoTags extends Information {
 				'name' => "iPhone 4s",
 				'type' => 'model',
 			],
+			*/
 			3 => [
 				'slug' => 'iphone-5',
 				'name' => "iPhone 5",
@@ -67,6 +69,7 @@ class InfoTags extends Information {
 				'name' => "iPhone 7 Plus",
 				'type' => 'model',
 			],
+			/*
 			13 => [
 				'slug' => 'iphone-8',
 				'name' => "iPhone 8",
@@ -82,6 +85,7 @@ class InfoTags extends Information {
 				'name' => "iPhone X",
 				'type' => 'model',
 			],
+			*/
 
 			// Colors
 			200 => [
