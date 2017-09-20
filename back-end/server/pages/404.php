@@ -2,13 +2,11 @@
 
 class Page extends ParentApi {
 
+	protected $description = 'Ressource not found';
+
 	public function prepare() {
 
-	}
-
-	public function affiche() {
-
-		echo 'Error 404: page not found.';
+			return ['404 error'];
 
 	}
 

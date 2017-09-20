@@ -5,7 +5,7 @@ class TableItems extends Table {
 	public $champ = [
 		'reference' => ['bigint', 'unsigned'],
 		'model' => ['varchar', 255, null, true],
-		'capacity' => ['varchar', 255, null, true],
+		'capacity' => ['smallint', 'unsigned', null, true],
 		'color' => ['varchar', 255, null, true],
 		'title' => ['varchar', 255],
 		'price' => ['int', 'unsigned'],
