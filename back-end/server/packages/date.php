@@ -15,7 +15,22 @@ class PackageDate extends Package {
       return date('Y-m-d', time() - 24 * 3600)." $time";
     }
 
-    return null;
+    $pattern = '(\d+)\s([a-z]+),\s(\d+):(\d+)';
+    $matches = [];
+
+    preg_match("/$pattern/i", $text, $matches);
+
+    if (!$matches) {
+      return null;
+    }
+
+    list($all, $day, $month, $hour, $minute) = $matches;
+
+    $month = [
+      'sept' => '09',
+    ][$month];
+
+    return date('Y')."-$month-$day $hour:$minute:00";
 
   }
 

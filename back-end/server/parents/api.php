@@ -12,6 +12,8 @@ abstract class ParentApi extends EcranPlat {
 
 		$data = $this->prepare();
 
+		header('Access-Control-Allow-Origin: *');
+
 		return new Json([
 			'version' => '1.0.0',
 			'description' => $this->description,
