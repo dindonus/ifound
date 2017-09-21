@@ -7,13 +7,13 @@ class Page extends ParentApi {
 	public function prepare() {
 
 		$stats = $this->table('items')
-			->select(['model', 'availables' => 'COUNT(*)', 'price' => 'AVG(price)'])
+			->select(['slug' => 'model', 'availables' => 'COUNT(*)', 'price' => 'AVG(price)'])
 			->group('model')
 			->order('price', 'desc')
 			->get();
 
 		foreach ($stats as &$stat) {
-			$stat['capacities'] = $this->getCapacities($stat['model'], $stat['availables']);
+			$stat['capacities'] = $this->getCapacities($stat['slug'], $stat['availables']);
 		}
 
 		return $stats;

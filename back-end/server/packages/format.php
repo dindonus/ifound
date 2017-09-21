@@ -33,7 +33,7 @@ class PackageFormat extends Package {
 	public function getModelFromTitle($title) {
 
 		$title = strtolower($title).' ';
-		$pattern = 'iphone\s*(\d|x|se|c)\s*(s\s)?\s*(plus|\+)?';
+		$pattern = 'iphone\s*(\d|x|se)\s*(s|c\s)?\s*(plus|\+)?';
 		$matches = [];
 
 		preg_match("/$pattern/i", $title, $matches);
