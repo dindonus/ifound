@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Model from './Model';
-import './App.css';
 
-class App extends Component {
+class Series extends Component {
 
   constructor(props) {
     super(props);
@@ -19,10 +18,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Welcome to React</h2>
-        </div>
+      <div className="Series">
         { this.showModelBySlug('iphone-7') }
         { this.showModelBySlug('iphone-7-plus') }
         <hr />
@@ -46,4 +42,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Series;
