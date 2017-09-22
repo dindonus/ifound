@@ -9,6 +9,6 @@ const Root = () => (
       <ContentRouter />
     </Main>
   </BrowserRouter>
-)
+);
 
 export default Root;

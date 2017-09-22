@@ -8,10 +8,8 @@ const Main = ({ children }) => (
         <Link to="/">iFound</Link>
       </h1>
     </div>
-    <div className="Main-content">
-      { children }
-    </div>
+    <div className="Main-content">{children}</div>
   </div>
-)
+);
 
 export default Main;
