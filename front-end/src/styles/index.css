@@ -4,11 +4,32 @@ body {
   font-family: sans-serif;
 }
 
-.Main-header {
+.Main-navbar {
+  background-color: #4294ff;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  padding: 5px 0px;
+}
+
+.Main-navbar a {
+  color: white;
+}
+
+.Main-footer {
+  background-color: #9b9b9b;
+  height: 100px;
+}
+
+.Content-header {
   background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
+}
+
+.Content-body {
+  padding: 20px 0px;
 }
 
 .Model-line {
@@ -30,4 +51,17 @@ body {
 .details {
   font-size: 12px;
   color: #aaa;
+}
+
+a {
+  text-decoration: none;
+}
+
+.Main-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.Main-top {
+  flex: 1 0 auto;
 }

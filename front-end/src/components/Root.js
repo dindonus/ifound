@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import Main from './Main';
-import ContentRouter from './ContentRouter';
+import Main from './layouts/Main';
+import Router from './Router';
 
 const Root = () => (
   <BrowserRouter>
     <Main>
-      <ContentRouter />
+      <Router />
     </Main>
   </BrowserRouter>
 );
