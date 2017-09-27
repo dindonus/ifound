@@ -17,12 +17,12 @@ body {
 }
 
 .Main-footer {
-  background-color: #9b9b9b;
+  background-color: rgba(0, 0, 0, 0.1);
   height: 100px;
 }
 
 .Content-header {
-  background-color: #222;
+  background-color: rgba(0, 0, 0, 0.8);
   height: 150px;
   padding: 20px;
   color: white;

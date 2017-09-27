@@ -1,11 +1,16 @@
 import React from 'react';
 
 const ContentPresenter = ({ header, body }) => {
-  console.log(header);
+  const Header = header;
+  const Body = body;
   return (
     <div>
-      <div className="Content-header">{header}</div>
-      <div className="Content-body">{body}</div>
+      <div className="Content-header">
+        <Header />
+      </div>
+      <div className="Content-body">
+        <Body />
+      </div>
     </div>
   );
 };

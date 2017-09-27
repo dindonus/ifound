@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Main from './layouts/Main';
 import Router from './Router';
 
-const Root = () => (
+const App = () => (
   <BrowserRouter>
     <Main>
       <Router />
@@ -11,4 +11,4 @@ const Root = () => (
   </BrowserRouter>
 );
 
-export default Root;
+export default App;
