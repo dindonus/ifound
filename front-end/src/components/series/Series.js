@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Model from './Model';
+import fetchAll from '../../services/models';
 
 class Series extends Component {
   constructor(props) {
@@ -8,11 +9,7 @@ class Series extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://ifound.dev/api/offers/summary`)
-      .then(response => response.json())
-      .then(response => response.payload)
-      .then(payload => this.setState({ models: payload }))
-      .catch(_ => console.log('Fetch failed!'));
+    fetchAll().then(models => this.setState({ models }));
   }
 
   render() {
