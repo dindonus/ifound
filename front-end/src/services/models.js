@@ -13,4 +13,18 @@ const fetchAll = () => {
   });
 };
 
-export default fetchAll;
+const findBySlug = slug => {
+  return new Promise((resolve, reject) => {
+    const models = storage.get('models');
+    if (models) {
+      const model = models.find(model => model.slug === slug);
+      resolve(model);
+    }
+    fetchAll().then(models => {
+      const model = models.find(model => model.slug === slug);
+      resolve(model);
+    });
+  });
+};
+
+export { fetchAll, findBySlug };

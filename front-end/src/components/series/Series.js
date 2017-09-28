@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Model from './Model';
-import fetchAll from '../../services/models';
+import { fetchAll } from '../../services/models';
 
 class Series extends Component {
   constructor(props) {
