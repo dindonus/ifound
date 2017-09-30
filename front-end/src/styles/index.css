@@ -29,7 +29,8 @@ body {
 }
 
 .Content-body {
-  padding: 20px 0px;
+  padding: 20px;
+  color: #262626;
 }
 
 .Model-line {
@@ -64,4 +65,25 @@ a {
 }
 .Main-top {
   flex: 1 0 auto;
+}
+
+.Content-capacities-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.Capacity-block {
+  border: 1px solid #333;
+  border-radius: 10px;
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+  margin: 10px 0px;
+}
+
+.Capacity-block h3 {
+  padding: 5px;
+  margin: 0px;
+  font-size: 30px;
+  font-weight: 100;
 }

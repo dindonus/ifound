@@ -2,6 +2,11 @@ import storage from './storage';
 
 const fetchAll = () => {
   return new Promise((resolve, reject) => {
+    const models = storage.get('models');
+    if (models) {
+      resolve(models);
+      return;
+    }
     fetch(`http://ifound.dev/api/offers/summary`)
       .then(response => response.json())
       .then(response => response.payload)

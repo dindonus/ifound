@@ -69,7 +69,6 @@ class InfoTags extends Information {
 				'name' => "iPhone 7 Plus",
 				'type' => 'model',
 			],
-			/*
 			13 => [
 				'slug' => 'iphone-8',
 				'name' => "iPhone 8",
@@ -80,6 +79,7 @@ class InfoTags extends Information {
 				'name' => "iPhone 8 Plus",
 				'type' => 'model',
 			],
+			/*
 			15 => [
 				'slug' => 'iphone-x',
 				'name' => "iPhone X",

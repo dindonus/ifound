@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Price from '../utilities/Price';
 
 const Model = ({ model }) => (
   <dl className="Model-line">
     <dt>{model.name}</dt>
     <dd>
-      {model.stats.price}€
+      <Price value={model.stats.price} />
       <span className="details">{model.stats.availables}</span>
       -
       <Link to={`/models/${model.slug}`}>Voir</Link>

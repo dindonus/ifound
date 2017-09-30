@@ -15,6 +15,9 @@ class Series extends Component {
   render() {
     return (
       <div className="Series">
+        {this.showModelBySlug('iphone-8')}
+        {this.showModelBySlug('iphone-8-plus')}
+        <hr />
         {this.showModelBySlug('iphone-7')}
         {this.showModelBySlug('iphone-7-plus')}
         <hr />

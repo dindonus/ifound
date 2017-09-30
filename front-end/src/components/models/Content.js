@@ -1,8 +1,13 @@
 import React from 'react';
+import Capacity from './Capacity';
 
 const Content = ({ model }) => (
   <div>
-    <h1>{model.name} Content</h1>
+    <div className="Content-capacities-container">
+      {model.capacities.map((capacity, index) => (
+        <Capacity key={index} model={model} capacity={capacity} />
+      ))}
+    </div>
   </div>
 );
 

@@ -16,14 +16,16 @@ class Page extends ParentApi {
 
 		foreach ($stats as &$stat) {
 			$model = $this->info('tags')->get($stat['slug']);
-			unset($model['id']);
-			unset($model['type']);
-			$model['capacities'] = $this->getCapacities($stat['slug'], $stat['availables']);
-			$model['stats'] = [
-				'availables' => $stat['availables'],
-				'price' => $stat['price'],
-			];
-			$models[] = $model;
+			if ($model) {
+				unset($model['id']);
+				unset($model['type']);
+				$model['capacities'] = $this->getCapacities($stat['slug'], $stat['availables']);
+				$model['stats'] = [
+					'availables' => $stat['availables'],
+					'price' => $stat['price'],
+				];
+				$models[] = $model;
+			}
 		}
 
 		return $models;
