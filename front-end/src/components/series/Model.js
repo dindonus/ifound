@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Price from '../utilities/Price';
+import RoundedPrice from '../utilities/RoundedPrice';
 
 const Model = ({ model }) => (
   <dl className="Model-line">
     <dt>{model.name}</dt>
     <dd>
-      <Price value={model.stats.price} />
-      <span className="details">{model.stats.availables}</span>
+      <RoundedPrice value={model.stats.price} />
       -
       <Link to={`/models/${model.slug}`}>Voir</Link>
     </dd>

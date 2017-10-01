@@ -37,7 +37,11 @@ class Page extends ParentApi {
 		$requiredByCapacity = ceil($availables / 20);
 
 		$capacities = $this->table('items')
-			->select(['capacity', 'availables' => 'COUNT(*)', 'price' => 'AVG(price)'])
+			->select([
+				'value' => 'capacity',
+				'availables' => 'COUNT(*)',
+				'price' => 'AVG(price)'
+			])
 			->where('model', $model)
 			->where('capacity', '!=', null)
 			->group('capacity')
