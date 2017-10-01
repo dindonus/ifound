@@ -1,5 +1,7 @@
+import config from '../config';
+
 const fetchByModel = (slug, capacity) => {
-  const url = `http://ifound.dev/api/offers/${slug}/${capacity}`;
+  const url = `${config.api}offers/${slug}/${capacity}`;
   return new Promise((resolve, reject) => {
     fetch(url)
       .then(response => response.json())

@@ -1,4 +1,5 @@
 import storage from './storage';
+import config from '../config';
 
 const fetchAll = () => {
   return new Promise((resolve, reject) => {
@@ -7,7 +8,7 @@ const fetchAll = () => {
       resolve(models);
       return;
     }
-    fetch(`http://ifound.dev/api/offers/summary`)
+    fetch(`${config.api}offers/summary`)
       .then(response => response.json())
       .then(response => response.payload)
       .then(payload => {

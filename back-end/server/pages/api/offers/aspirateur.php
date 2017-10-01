@@ -15,13 +15,22 @@ class Page extends ParentApi {
 			return 'Invalid parameters';
 		}
 
-		return $this->table('items')
+		$items = $this->table('items')
 			->select('title', 'price', 'color', 'location', 'href', 'published')
 			->where('model', $model['slug'])
 			->where('capacity', $capacity)
 			->order('published', 'desc')
 			->limit(35)
 			->get();
+
+		foreach ($items as &$item) {
+			$item['published'] = [
+				'datetime' => $item['published'],
+				'localized' => dateTexte($item['published']),
+			];
+		}
+
+		return $items;
 
 	}
 

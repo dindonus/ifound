@@ -1,29 +1,22 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+* docker-compose up
+* yarn install
+* yarn start
 
-### What is this repository for? ###
+### TODO ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* Choisir une durée de vie des annonces (genre 1 WEEK) coté back
+* Afficher le nombre d'iPhones en vente par catégorie
+* Afficher la date de mise en vente sur la liste des offres
 
-### How do I get set up? ###
+* Aficher les photos des annonces
+* Voir le lien pour aller sur LBC
+* Pouvoir filter les offers par département
+* Liker une annonce / voir les likes
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+### Libs ###
 
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+* Pre-loaded views
+* Select départements filter
+* Pages transistions
