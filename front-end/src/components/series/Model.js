@@ -4,11 +4,18 @@ import RoundedPrice from '../utilities/RoundedPrice';
 
 const Model = ({ model }) => (
   <dl className="Model-line">
-    <dt>{model.name}</dt>
+    <dt>
+      {model.name} -
+      <Link to={`/models/${model.slug}`}>
+        <button>
+          <strong>{model.stats.availables}</strong> annonces
+        </button>
+      </Link>
+    </dt>
     <dd>
-      <RoundedPrice value={model.stats.price} />
-      -
-      <Link to={`/models/${model.slug}`}>Voir</Link>
+      <big>
+        <RoundedPrice value={model.stats.price} />
+      </big>
     </dd>
   </dl>
 );

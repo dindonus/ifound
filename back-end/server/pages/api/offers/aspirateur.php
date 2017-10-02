@@ -11,7 +11,7 @@ class Page extends ParentApi {
 		$model = $this->info('tags')->get($model);
 		$capacity = (int) $capacity;
 
-		if (!$model or !in_array($capacity, config('specifications.capacities'))) {
+		if (!$model or !in_array($capacity, config('app.capacities'))) {
 			return 'Invalid parameters';
 		}
 
@@ -19,8 +19,9 @@ class Page extends ParentApi {
 			->select('title', 'price', 'color', 'location', 'href', 'published')
 			->where('model', $model['slug'])
 			->where('capacity', $capacity)
+			->where('published', '>', now('-'.config('app.offers.duration')))
 			->order('published', 'desc')
-			->limit(35)
+			->limit(50)
 			->get();
 
 		foreach ($items as &$item) {

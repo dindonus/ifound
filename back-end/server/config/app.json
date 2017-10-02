@@ -1,0 +1,6 @@
+{
+  "capacities": [16, 32, 64, 128, 256],
+  "offers": {
+    "duration": "1 WEEK"
+  }
+}

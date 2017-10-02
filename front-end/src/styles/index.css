@@ -35,13 +35,14 @@ body {
 
 .Model-line {
   display: flex;
-  width: 300px;
+  width: 400px;
   margin: auto;
+  margin-bottom: 10px;
 }
 
 .Model-line dt {
   text-align: left;
-  flex: 1;
+  flex: 2;
 }
 
 .Model-line dd {
