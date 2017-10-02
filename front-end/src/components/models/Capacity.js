@@ -10,6 +10,7 @@ const Capacity = ({ model, capacity }) => {
         <h3>{capacity.value} Go</h3>
         <div className="price">
           <RoundedPrice value={capacity.price} />
+          <div>{capacity.availables} annonces</div>
         </div>
       </div>
     </Link>

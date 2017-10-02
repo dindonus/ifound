@@ -4,12 +4,21 @@ import Capitalize from '../utilities/Capitalize';
 
 const Offer = ({ data }) => (
   <article className="Offer">
-    <h3>
-      <Capitalize string={data.title} />
-    </h3>
-    <Price value={data.price} />
-    <div>{data.location}</div>
-    <div>{data.published.localized}</div>
+    <div className="flex">
+      <div className="picture">
+        <img src={data.picture} alt="iPhone" />
+      </div>
+      <div className="informations">
+        <h3>
+          <Capitalize string={data.title} />
+        </h3>
+        <div>{data.location}</div>
+        <div>{data.published.localized}</div>
+      </div>
+      <div className="price">
+        <Price value={data.price} />
+      </div>
+    </div>
   </article>
 );
 

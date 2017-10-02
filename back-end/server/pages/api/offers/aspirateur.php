@@ -16,7 +16,7 @@ class Page extends ParentApi {
 		}
 
 		$items = $this->table('items')
-			->select('title', 'price', 'color', 'location', 'href', 'published')
+			->select('title', 'price', 'color', 'location', 'href', 'picture', 'published')
 			->where('model', $model['slug'])
 			->where('capacity', $capacity)
 			->where('published', '>', now('-'.config('app.offers.duration')))

@@ -11,6 +11,7 @@ class TableItems extends Table {
 		'price' => ['int', 'unsigned'],
 		'location' => ['varchar', 255],
 		'href' => ['varchar', 255],
+		'picture' => ['varchar', 255],
 		'published' => ['datetime'],
 		'created' => ['datetime'],
 		'disabled' => ['datetime', null, null, true],

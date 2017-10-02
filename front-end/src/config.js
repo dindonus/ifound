@@ -1,5 +1,5 @@
 const config = {
-  api: 'http://ifound.dindon.us/api/'
+  api: 'http://ifound.dev/api/'
 };
 
 export default config;
