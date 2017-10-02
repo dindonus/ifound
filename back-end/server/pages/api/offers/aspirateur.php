@@ -20,6 +20,7 @@ class Page extends ParentApi {
 			->where('model', $model['slug'])
 			->where('capacity', $capacity)
 			->where('published', '>', now('-'.config('app.offers.duration')))
+			->where('picture', '!=', null)
 			->order('published', 'desc')
 			->limit(50)
 			->get();

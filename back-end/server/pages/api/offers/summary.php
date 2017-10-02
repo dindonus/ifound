@@ -9,6 +9,8 @@ class Page extends ParentApi {
 		$stats = $this->table('items')
 			->select(['slug' => 'model', 'availables' => 'COUNT(*)', 'price' => 'AVG(price)'])
 			->where('published', '>', now('-'.config('app.offers.duration')))
+			->where('picture', '!=', null)
+			->where('capacity', '!=', null)
 			->group('model')
 			->order('price', 'desc')
 			->get();
@@ -45,6 +47,7 @@ class Page extends ParentApi {
 			])
 			->where('model', $model)
 			->where('capacity', '!=', null)
+			->where('picture', '!=', null)
 			->where('published', '>', now('-'.config('app.offers.duration')))
 			->group('capacity')
 			->order('capacity', 'asc')
