@@ -16,7 +16,7 @@ class PackageFormat extends Package {
       'price' => (int) $item['price'],
       'location' => $item['location'],
 			'href' => $item['href'],
-			'picture' => $item['picture'],
+			'picture' => $item['picture'] ?: null,
       'published' => $date,
       'created' => now(),
     ];
