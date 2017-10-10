@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = props => (
   <div>
-    <h1>Models Page Heading</h1>
+    <h1>Series Page Heading</h1>
   </div>
 );
 

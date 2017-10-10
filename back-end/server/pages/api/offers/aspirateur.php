@@ -2,23 +2,21 @@
 
 class Page extends ParentApi {
 
-	protected $description = 'All offers by model and capacity';
+	protected $description = 'All offers by model';
 
 	public function prepare() {
 
-		list($model, $capacity) = explode('/', POUSSIERE);
+		list($model) = explode('/', POUSSIERE);
 
 		$model = $this->info('tags')->get($model);
-		$capacity = (int) $capacity;
 
-		if (!$model or !in_array($capacity, config('app.capacities'))) {
+		if (!$model) {
 			return 'Invalid parameters';
 		}
 
 		$items = $this->table('items')
-			->select('title', 'price', 'color', 'location', 'href', 'picture', 'published')
+			->select('title', 'price', 'capacity', 'color', 'location', 'href', 'picture', 'published')
 			->where('model', $model['slug'])
-			->where('capacity', $capacity)
 			->where('published', '>', now('-'.config('app.offers.duration')))
 			->where('picture', '!=', null)
 			->order('published', 'desc')

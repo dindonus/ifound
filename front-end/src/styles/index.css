@@ -1,118 +1,97 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
 
 .Main-navbar {
-  background-color: #4294ff;
-  color: white;
-  font-size: 30px;
-  text-align: center;
-  padding: 5px 0px;
+    background-color: #4294ff;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    padding: 5px 0px;
 }
 
 .Main-navbar a {
-  color: white;
+    color: white;
 }
 
 .Main-footer {
-  background-color: rgba(0, 0, 0, 0.1);
-  height: 100px;
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 100px;
 }
 
 .Content-header {
-  background-color: rgba(0, 0, 0, 0.8);
-  height: 150px;
-  padding: 20px;
-  color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 150px;
+    padding: 20px;
+    color: white;
 }
 
 .Content-body {
-  padding: 20px;
-  color: #262626;
+    padding: 20px;
+    color: #262626;
 }
 
 .Model-line {
-  display: flex;
-  width: 400px;
-  margin: auto;
-  margin-bottom: 10px;
+    display: flex;
+    width: 400px;
+    margin: auto;
+    margin-bottom: 10px;
 }
 
 .Model-line dt {
-  text-align: left;
-  flex: 2;
+    text-align: left;
+    flex: 2;
 }
 
 .Model-line dd {
-  text-align: right;
-  flex: 1;
+    text-align: right;
+    flex: 1;
 }
 
 .Offer {
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
 }
 
 .Offer .Price {
-  font-size: 40px;
-  font-weight: 100;
+    font-size: 40px;
+    font-weight: 100;
 }
 
 .Offer .picture {
-  flex-basis: 200px;
+    flex-basis: 200px;
 }
 
 .Offer .informations {
-  flex: 100;
+    flex: 100;
 }
 
 .Offer .price {
-  flex-basis: 110px;
-  text-align: right;
-  padding-top: 40px;
+    flex-basis: 110px;
+    text-align: right;
+    padding-top: 40px;
 }
 
 .flex {
-  display: flex;
+    display: flex;
 }
 
 .flex > div {
-  flex: 1;
+    flex: 1;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .Main-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 .Main-top {
-  flex: 1 0 auto;
-}
-
-.Content-capacities-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.Capacity-block {
-  border: 1px solid #333;
-  border-radius: 10px;
-  flex: 1;
-  text-align: center;
-  padding: 20px;
-  margin: 10px 0px;
-}
-
-.Capacity-block h3 {
-  padding: 5px;
-  margin: 0px;
-  font-size: 30px;
-  font-weight: 100;
+    flex: 1 0 auto;
 }

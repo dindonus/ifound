@@ -7,7 +7,7 @@ const Model = ({ model }) => (
   <dl className="Model-line">
     <dt>
       {model.name} -
-      <Link to={`/models/${model.slug}`}>
+      <Link to={`/offers/${model.slug}`}>
         <button>
           <strong>
             <Number decimal="0">{model.stats.availables}</Number>

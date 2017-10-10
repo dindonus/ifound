@@ -12,14 +12,13 @@ class Content extends Component {
 
   componentDidMount() {
     const slug = this.props.match.params.model;
-    const capacity = this.props.match.params.capacity;
     findBySlug(slug).then(model => {
       this.setState((previousState, props) => {
         const state = { ...previousState };
         state.model = model;
         return state;
       });
-      fetchByModel(slug, capacity).then(offers =>
+      fetchByModel(slug).then(offers =>
         this.setState((previousState, props) => {
           const state = { ...previousState };
           state.offers = offers;
