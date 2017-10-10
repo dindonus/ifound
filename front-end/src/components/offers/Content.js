@@ -9,7 +9,11 @@ class Content extends Component {
   constructor(props) {
     super(props);
     this.onFiltersChange = this.onFiltersChange.bind(this);
-    this.state = { model: null, offers: [] };
+    this.state = {
+      model: null,
+      offers: [],
+      filters: { price: 2000, capacity: 16 }
+    };
   }
 
   componentDidMount() {
@@ -32,19 +36,34 @@ class Content extends Component {
 
   onFiltersChange(name, value) {
     console.log(`filter ${name} changed to ${value}`);
+    this.setState((previousState, props) => {
+      const state = { ...previousState };
+      state.filters[name] = value;
+      return state;
+    });
   }
 
   render() {
     return (
       <div>
-        <Filters onChange={this.onFiltersChange} />
+        <Filters
+          onChange={this.onFiltersChange}
+          activeFilters={this.state.filters}
+        />
+        <p className="">{this.getFilteredOffers().length}</p>
         <div className="Offers">
-          {this.state.offers.map((offer, index) => (
+          {this.getFilteredOffers().map((offer, index) => (
             <Offer key={index} data={offer} />
           ))}
         </div>
       </div>
     );
+  }
+
+  getFilteredOffers() {
+    return this.state.offers
+      .filter(offer => offer.price < this.state.filters.price)
+      .filter(offer => offer.capacity >= this.state.filters.capacity);
   }
 }
 
