@@ -21,7 +21,8 @@ class Page extends ParentApi {
 			->where('published', '>', now('-'.config('app.offers.duration')))
 			->where('capacity', '!=', null)
 			->where('picture', '!=', null)
-			->order('published', 'desc');
+			->order('published', 'desc')
+			->limit(50);
 
 		if ($location) {
 			$location = addslashes($location);
