@@ -25,7 +25,7 @@ class Page extends ParentApi {
 
 		if ($location) {
 			$location = $query->escape($location);
-			$query = $query->where("`location` LIKE '%$location%'");
+			$query = $query->where("`location` LIKE %$location%");
 		}
 
 		$items = $query->get();
