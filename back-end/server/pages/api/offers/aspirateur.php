@@ -24,8 +24,8 @@ class Page extends ParentApi {
 			->order('published', 'desc');
 
 		if ($location) {
-			$location = $query->escape($location);
-			$query = $query->where("`location` LIKE %$location%");
+			$location = addslashes($location);
+			$query = $query->where("`location` LIKE '%$location%'");
 		}
 
 		$items = $query->get();
