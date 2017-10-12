@@ -43,7 +43,11 @@ const Filters = ({ activeFilters, onChange }) => {
         ))}
       </ul>
       Localisation :
-      <input type="text" value="" />
+      <input
+        type="text"
+        value={activeFilters.location}
+        onChange={event => onChange('location', event.target.value)}
+      />
     </section>
   );
 };

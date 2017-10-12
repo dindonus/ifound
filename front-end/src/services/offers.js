@@ -1,7 +1,8 @@
 import config from '../config';
 
-const fetchByModel = slug => {
-  const url = `${config.api}offers/${slug}`;
+const fetchByModel = (slug, filters = {}) => {
+  const location = filters.location || '';
+  const url = `${config.api}offers/${slug}?location=${location}`;
   return new Promise((resolve, reject) => {
     fetch(url)
       .then(response => response.json())

@@ -12,25 +12,20 @@ class Content extends Component {
     this.state = {
       model: null,
       offers: [],
-      filters: { price: 2000, capacity: 16 }
+      filters: { price: 2000, capacity: 16, location: '' }
     };
   }
 
   componentDidMount() {
     const slug = this.props.match.params.model;
-    findBySlug(slug).then(model => {
+    Promise.all([findBySlug(slug), fetchByModel(slug)]).then(values => {
+      const [model, offers] = values;
       this.setState((previousState, props) => {
         const state = { ...previousState };
         state.model = model;
+        state.offers = offers;
         return state;
       });
-      fetchByModel(slug).then(offers =>
-        this.setState((previousState, props) => {
-          const state = { ...previousState };
-          state.offers = offers;
-          return state;
-        })
-      );
     });
   }
 
@@ -41,20 +36,32 @@ class Content extends Component {
       state.filters[name] = value;
       return state;
     });
+    if (name === 'location') {
+      fetchByModel(this.state.model.slug, this.state.filters).then(offers => {
+        this.setState((previousState, props) => {
+          const state = { ...previousState };
+          state.offers = offers;
+          return state;
+        });
+      });
+    }
   }
 
   render() {
+    const offers = this.getFilteredOffers();
+    const average = this.getAveragePrice(offers);
     return (
       <div>
         <Filters
           onChange={this.onFiltersChange}
           activeFilters={this.state.filters}
         />
-        <p className="">{this.getFilteredOffers().length}</p>
+        <p className="">
+          Résultat :
+          {offers.length} offres - prix moyen : {average.toFixed(0)} €
+        </p>
         <div className="Offers">
-          {this.getFilteredOffers().map((offer, index) => (
-            <Offer key={index} data={offer} />
-          ))}
+          {offers.map((offer, index) => <Offer key={index} data={offer} />)}
         </div>
       </div>
     );
@@ -64,6 +71,11 @@ class Content extends Component {
     return this.state.offers
       .filter(offer => offer.price < this.state.filters.price)
       .filter(offer => offer.capacity >= this.state.filters.capacity);
+  }
+
+  getAveragePrice(offers) {
+    const sum = offers.reduce((acc, offer) => offer.price + acc, 0);
+    return sum / (offers.length || 1);
   }
 }
 
