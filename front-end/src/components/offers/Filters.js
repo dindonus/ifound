@@ -36,11 +36,18 @@ const Filters = ({ activeFilters, onChange }) => {
       </ul>
       Mémoire :
       <ul>
-        {filters.capacities.map((price, index) => (
-          <li key={index} onClick={event => onChange('capacity', price.value)}>
-            {price.text}
-          </li>
-        ))}
+        {filters.capacities.map((capacity, index) => {
+          const isActive = capacity.value === activeFilters.capacity;
+          return (
+            <li
+              key={index}
+              className={isActive ? 'active' : ''}
+              onClick={event => onChange('capacity', capacity.value)}
+            >
+              {capacity.text}
+            </li>
+          );
+        })}
       </ul>
       Localisation :
       <input

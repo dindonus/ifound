@@ -4,15 +4,17 @@ import Filters from './Filters';
 import Offer from './Offer';
 import { fetchByModel } from '../../services/offers';
 import { findBySlug } from '../../services/models';
+import debounce from 'lodash/debounce';
 
 class Content extends Component {
   constructor(props) {
     super(props);
     this.onFiltersChange = this.onFiltersChange.bind(this);
+    this.refetchOffers = debounce(this.refetchOffers.bind(this), 300);
     this.state = {
       model: null,
       offers: [],
-      filters: { price: 2000, capacity: 16, location: '' }
+      filters: { price: 2000, capacity: 32, location: '' }
     };
   }
 
@@ -30,21 +32,25 @@ class Content extends Component {
   }
 
   onFiltersChange(name, value) {
-    console.log(`filter ${name} changed to ${value}`);
+    console.log(`filters changed ${name}=${value}`);
     this.setState((previousState, props) => {
       const state = { ...previousState };
       state.filters[name] = value;
       return state;
     });
     if (name === 'location') {
-      fetchByModel(this.state.model.slug, this.state.filters).then(offers => {
-        this.setState((previousState, props) => {
-          const state = { ...previousState };
-          state.offers = offers;
-          return state;
-        });
-      });
+      this.refetchOffers();
     }
+  }
+
+  refetchOffers() {
+    fetchByModel(this.state.model.slug, this.state.filters).then(offers => {
+      this.setState((previousState, props) => {
+        const state = { ...previousState };
+        state.offers = offers;
+        return state;
+      });
+    });
   }
 
   render() {
