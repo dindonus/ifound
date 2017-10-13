@@ -12,8 +12,13 @@ const Offer = ({ data }) => (
         <h3>
           <Capitalize string={data.title} />
         </h3>
-        <div>{data.location}</div>
+        <adress>{data.location}</adress>
         <div>{data.published.localized}</div>
+        <div>
+          <a href={data.href} target="_blank">
+            Voir
+          </a>
+        </div>
       </div>
       <div className="price">
         <Price value={data.price} />
