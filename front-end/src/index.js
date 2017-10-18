@@ -1,6 +1,17 @@
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './components/App';
 
-render(<App />, document.getElementById('root'));
+const renderApp = app => {
+  ReactDOM.render(app, document.getElementById('root'));
+};
+
+renderApp(<App />);
+
+if (module.hot) {
+  module.hot.accept('./components/App', () => {
+    const NextApp = require('./components/App').default;
+    renderApp(<NextApp />);
+  });
+}
