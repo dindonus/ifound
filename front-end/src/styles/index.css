@@ -5,7 +5,7 @@ body {
 }
 
 .Main-navbar {
-  background-color: #4294ff;
+  background-color: #007bff;
   color: white;
   font-size: 30px;
   text-align: center;
@@ -67,6 +67,10 @@ body {
 
 .Offer .informations {
   flex: 100;
+}
+
+.Offer h3 {
+  font-size: 20px;
 }
 
 .Offer .price {

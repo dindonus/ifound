@@ -6,13 +6,13 @@ import Number from '../utilities/Number';
 const Model = ({ model }) => (
   <dl className="Model-line">
     <dt>
-      {model.name} -
+      {model.name}{' '}
       <Link to={`/offers/${model.slug}`}>
-        <button>
+        <button className="btn btn-primary">
           <strong>
             <Number decimal="0">{model.stats.availables}</Number>
           </strong>{' '}
-          annonces
+          annonces »
         </button>
       </Link>
     </dt>

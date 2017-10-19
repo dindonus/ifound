@@ -62,6 +62,7 @@ class Content extends Component {
           onChange={this.onFiltersChange}
           activeFilters={this.state.filters}
         />
+        <hr />
         <p className="">
           Résultat :
           {offers.length} offres - prix moyen : {average.toFixed(0)} €

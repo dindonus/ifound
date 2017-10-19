@@ -18,42 +18,41 @@ const Filters = ({ activeFilters, onChange }) => {
   };
   return (
     <section>
-      <h3>Filters</h3>
-      Prix :
-      <ul>
+      <h3>Filtres</h3>
+      <div class="btn-group mb-2" role="price">
         {filters.prices.map((price, index) => {
           const isActive = price.value === activeFilters.price;
           return (
-            <li
+            <button
+              className={`${isActive ? 'active' : ''} btn btn-primary`}
               key={index}
-              className={isActive ? 'active' : ''}
               onClick={event => onChange('price', price.value)}
             >
               {price.text}
-            </li>
+            </button>
           );
         })}
-      </ul>
-      Mémoire :
-      <ul>
+      </div>
+      <div class="btn-group mb-2" role="capacity">
         {filters.capacities.map((capacity, index) => {
           const isActive = capacity.value === activeFilters.capacity;
           return (
-            <li
+            <button
               key={index}
-              className={isActive ? 'active' : ''}
+              className={`${isActive ? 'active' : ''} btn btn-primary`}
               onClick={event => onChange('capacity', capacity.value)}
             >
               {capacity.text}
-            </li>
+            </button>
           );
         })}
-      </ul>
-      Localisation :
+      </div>
       <input
         type="text"
         value={activeFilters.location}
         onChange={event => onChange('location', event.target.value)}
+        className="form-control"
+        placeholder="Ville ou département"
       />
     </section>
   );
