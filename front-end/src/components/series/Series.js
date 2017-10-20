@@ -15,22 +15,33 @@ class Series extends Component {
   render() {
     return (
       <div className="Series">
-        {this.showModelBySlug('iphone-8')}
-        {this.showModelBySlug('iphone-8-plus')}
-        <hr />
-        {this.showModelBySlug('iphone-7')}
-        {this.showModelBySlug('iphone-7-plus')}
-        <hr />
-        {this.showModelBySlug('iphone-6s')}
-        {this.showModelBySlug('iphone-6s-plus')}
-        {this.showModelBySlug('iphone-6')}
-        {this.showModelBySlug('iphone-6-plus')}
-        <hr />
-        {this.showModelBySlug('iphone-se')}
-        <hr />
-        {this.showModelBySlug('iphone-5s')}
-        {this.showModelBySlug('iphone-5')}
-        {this.showModelBySlug('iphone-5c')}
+        <div>
+          {this.showModelBySlug('iphone-8')}
+          <hr />
+          {this.showModelBySlug('iphone-8-plus')}
+        </div>
+        <div>
+          {this.showModelBySlug('iphone-7')}
+          <hr />
+          {this.showModelBySlug('iphone-7-plus')}
+        </div>
+        <div>
+          {this.showModelBySlug('iphone-6s')}
+          <hr />
+          {this.showModelBySlug('iphone-6s-plus')}
+          <hr />
+          {this.showModelBySlug('iphone-6')}
+          <hr />
+          {this.showModelBySlug('iphone-6-plus')}
+        </div>
+        <div>{this.showModelBySlug('iphone-se')}</div>
+        <div>
+          {this.showModelBySlug('iphone-5s')}
+          <hr />
+          {this.showModelBySlug('iphone-5')}
+          <hr />
+          {this.showModelBySlug('iphone-5c')}
+        </div>
       </div>
     );
   }

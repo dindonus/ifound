@@ -2,7 +2,8 @@ import React from 'react';
 
 const Header = props => (
   <div>
-    <h1>Series Page Heading</h1>
+    <h1>Votre iPhone</h1>
+    <div className="subtitle">Ouf pas cher !</div>
   </div>
 );
 

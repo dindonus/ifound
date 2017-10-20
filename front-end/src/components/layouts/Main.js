@@ -5,7 +5,11 @@ const Main = ({ children }) => (
   <div className="Main-container">
     <div className="Main-top">
       <div className="Main-navbar">
-        <Link to="/">iFound</Link>
+        <div className="rainbow-wrapper">
+          <Link to="/">
+            <i className="fa fa-apple" aria-hidden="true" /> iFound
+          </Link>
+        </div>
       </div>
       <div className="Main-content">{children}</div>
     </div>
