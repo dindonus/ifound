@@ -4,24 +4,17 @@ import RoundedPrice from '../utilities/RoundedPrice';
 import Number from '../utilities/Number';
 
 const Model = ({ model }) => (
-  <dl className="Model-line">
-    <dt>
-      {model.name}{' '}
-      <Link to={`/offers/${model.slug}`}>
-        <button className="btn btn-primary">
-          <strong>
-            <Number decimal="0">{model.stats.availables}</Number>
-          </strong>{' '}
-          annonces »
-        </button>
+  <div className="Model-line">
+    <div>
+      {model.name} <Number decimal="0">{model.stats.availables}</Number>
+      <br />
+      <Link className="tapped" to={`/offers/${model.slug}`}>
+        <big>
+          <RoundedPrice value={model.stats.price} />
+        </big>
       </Link>
-    </dt>
-    <dd>
-      <big>
-        <RoundedPrice value={model.stats.price} />
-      </big>
-    </dd>
-  </dl>
+    </div>
+  </div>
 );
 
 export default Model;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Model from './Model';
+import ModelsGroup from './ModelsGroup';
 import { fetchAll } from '../../services/models';
 
 class Series extends Component {
@@ -13,42 +14,46 @@ class Series extends Component {
   }
 
   render() {
+    const image =
+      'https://store.storeimages.cdn-apple.com/4662/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone7/select/iphone7-select-2016?wid=222&hei=305&fmt=png-alpha&qlt=95&.v=1471892660314';
     return (
       <div className="Series">
-        <div>
-          {this.showModelBySlug('iphone-8')}
-          <hr />
-          {this.showModelBySlug('iphone-8-plus')}
-        </div>
-        <div>
-          {this.showModelBySlug('iphone-7')}
-          <hr />
-          {this.showModelBySlug('iphone-7-plus')}
-        </div>
-        <div>
-          {this.showModelBySlug('iphone-6s')}
-          <hr />
-          {this.showModelBySlug('iphone-6s-plus')}
-          <hr />
-          {this.showModelBySlug('iphone-6')}
-          <hr />
-          {this.showModelBySlug('iphone-6-plus')}
-        </div>
-        <div>{this.showModelBySlug('iphone-se')}</div>
-        <div>
-          {this.showModelBySlug('iphone-5s')}
-          <hr />
-          {this.showModelBySlug('iphone-5')}
-          <hr />
-          {this.showModelBySlug('iphone-5c')}
-        </div>
+        <ModelsGroup
+          models={this.getModelsFromSlugs(['iphone-8', 'iphone-8-plus'])}
+          image={image}
+        />
+        <ModelsGroup
+          models={this.getModelsFromSlugs(['iphone-7', 'iphone-7-plus'])}
+          image={image}
+        />
+        <ModelsGroup
+          models={this.getModelsFromSlugs(['iphone-6s', 'iphone-6s-plus'])}
+          image={image}
+        />
+        <ModelsGroup
+          models={this.getModelsFromSlugs(['iphone-6', 'iphone-6-plus'])}
+          image={image}
+        />
+        <ModelsGroup
+          models={this.getModelsFromSlugs(['iphone-se'])}
+          image={image}
+        />
+        <ModelsGroup
+          models={this.getModelsFromSlugs([
+            'iphone-5s',
+            'iphone-5',
+            'iphone-5c'
+          ])}
+          image={image}
+        />
       </div>
     );
   }
 
-  showModelBySlug(slug) {
-    const model = this.state.models.find(model => model.slug === slug);
-    return model ? <Model model={model} /> : <div>...</div>;
+  getModelsFromSlugs(slugs) {
+    return slugs.map(slug =>
+      this.state.models.find(model => model.slug === slug)
+    );
   }
 }
 

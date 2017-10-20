@@ -16,13 +16,22 @@ body {
 }
 
 .Main-navbar {
-  background-color: #007bff;
   color: white;
   font-size: 30px;
   text-align: center;
   padding: 5px 0px;
-  position: relative;
-  height: 50px;
+  background: linear-gradient(
+    124deg,
+    #e81d1d,
+    #e8b71d,
+    #e3e81d,
+    #1de840,
+    #1ddde8,
+    #2b1de8,
+    #dd00f3
+  );
+  background-size: 1800% 1800%;
+  animation: rainbow 20s ease infinite;
 }
 
 .Main-navbar a {
@@ -64,23 +73,21 @@ body {
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 5px;
   background-color: white;
   padding: 20px;
-  width: 600px;
+  max-width: 600px;
   margin: 0px auto 20px auto;
 }
 
-.Model-line {
-  display: flex;
-  margin-bottom: 0px;
+.ModelsGroup > .picture {
+  flex: 0;
 }
 
-.Model-line dt {
-  text-align: left;
-  flex: 2;
-}
-
-.Model-line dd {
-  text-align: right;
+.ModelsGroup > .models {
   flex: 1;
+}
+
+.Model-line {
+  margin-bottom: 10px;
+  text-align: right;
 }
 
 .Offer {
@@ -138,64 +145,29 @@ ul > li.active {
   font-weight: bold;
 }
 
-.rainbow-wrapper {
-  height: 100%;
-  width: 100%;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  position: absolute;
-  background: linear-gradient(
-    124deg,
-    #ff2400,
-    #e81d1d,
-    #e8b71d,
-    #e3e81d,
-    #1de840,
-    #1ddde8,
-    #2b1de8,
-    #dd00f3,
-    #dd00f3
-  );
-  background-size: 1800% 1800%;
-  animation: rainbow 18s ease infinite;
+.tapped {
+  display: inline-block;
+  position: relative;
+  z-index: 10;
+  color: white;
+  padding: 10px;
 }
 
-@-webkit-keyframes rainbow {
-  0% {
-    background-position: 0% 82%;
-  }
-  50% {
-    background-position: 100% 19%;
-  }
-  100% {
-    background-position: 0% 82%;
-  }
+.tapped:hover {
+  color: white;
 }
-@-moz-keyframes rainbow {
-  0% {
-    background-position: 0% 82%;
-  }
-  50% {
-    background-position: 100% 19%;
-  }
-  100% {
-    background-position: 0% 82%;
-  }
+
+.tapped::before {
+  content: ' ';
+  display: block;
+  background-color: black;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -4;
 }
-@-o-keyframes rainbow {
-  0% {
-    background-position: 0% 82%;
-  }
-  50% {
-    background-position: 100% 19%;
-  }
-  100% {
-    background-position: 0% 82%;
-  }
-}
-@keyframes rainbow {
+
+@keyframes rainbow_pouet {
   0% {
     background-position: 0% 82%;
   }
