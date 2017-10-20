@@ -19,7 +19,7 @@ const Filters = ({ activeFilters, onChange }) => {
   return (
     <section>
       <h3>Filtres</h3>
-      <div class="btn-group mb-2" role="price">
+      <div className="btn-group mb-2">
         {filters.prices.map((price, index) => {
           const isActive = price.value === activeFilters.price;
           return (
@@ -33,7 +33,8 @@ const Filters = ({ activeFilters, onChange }) => {
           );
         })}
       </div>
-      <div class="btn-group mb-2" role="capacity">
+      <br />
+      <div className="btn-group mb-2">
         {filters.capacities.map((capacity, index) => {
           const isActive = capacity.value === activeFilters.capacity;
           return (
@@ -47,13 +48,15 @@ const Filters = ({ activeFilters, onChange }) => {
           );
         })}
       </div>
-      <input
-        type="text"
-        value={activeFilters.location}
-        onChange={event => onChange('location', event.target.value)}
-        className="form-control"
-        placeholder="Ville ou département"
-      />
+      <div className="input-group">
+        <input
+          type="text"
+          value={activeFilters.location}
+          onChange={event => onChange('location', event.target.value)}
+          className="form-control"
+          placeholder="Ville ou département"
+        />
+      </div>
     </section>
   );
 };
