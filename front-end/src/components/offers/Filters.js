@@ -1,4 +1,5 @@
 import React from 'react';
+import ButtonGroup from '../utilities/ButtonGroup';
 
 const Filters = ({ activeFilters, onChange }) => {
   const filters = {
@@ -16,37 +17,26 @@ const Filters = ({ activeFilters, onChange }) => {
       { value: 256, text: '256 GB' }
     ]
   };
+  const pricesButtons = filters.prices.map(price => ({
+    value: price.value,
+    text: price.text,
+    active: price.value === activeFilters.price,
+    onClick: event => onChange('price', price.value)
+  }));
+  const capacitiesButtons = filters.capacities.map(capacity => ({
+    value: capacity.value,
+    text: capacity.text,
+    active: capacity.value === activeFilters.price,
+    onClick: event => onChange('capacity', capacity.value)
+  }));
   return (
     <section>
       <h3>Filtres</h3>
-      <div className="btn-group mb-2">
-        {filters.prices.map((price, index) => {
-          const isActive = price.value === activeFilters.price;
-          return (
-            <button
-              className={`${isActive ? 'active' : ''} btn btn-primary`}
-              key={index}
-              onClick={event => onChange('price', price.value)}
-            >
-              {price.text}
-            </button>
-          );
-        })}
+      <div className="mb-3">
+        <ButtonGroup buttons={pricesButtons} />
       </div>
-      <br />
-      <div className="btn-group mb-2">
-        {filters.capacities.map((capacity, index) => {
-          const isActive = capacity.value === activeFilters.capacity;
-          return (
-            <button
-              key={index}
-              className={`${isActive ? 'active' : ''} btn btn-primary`}
-              onClick={event => onChange('capacity', capacity.value)}
-            >
-              {capacity.text}
-            </button>
-          );
-        })}
+      <div className="mb-3">
+        <ButtonGroup buttons={capacitiesButtons} />
       </div>
       <div className="input-group">
         <input
