@@ -40,7 +40,11 @@ body {
 
 .Main-footer {
   background-color: rgba(0, 0, 0, 0.1);
-  height: 100px;
+  line-height: 0.9;
+  text-align: center;
+  font-size: 200px;
+  font-weight: 100;
+  font-family: 'settledown';
 }
 
 .Content-header {
@@ -67,22 +71,25 @@ body {
 .Content-body {
   padding: 20px;
   color: #262626;
+  max-width: 600px;
+  margin: auto;
 }
 
 .Series > div {
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 5px;
   background-color: white;
   padding: 20px;
-  max-width: 600px;
-  margin: 0px auto 20px auto;
+  margin-bottom: 20px;
 }
 
 .ModelsGroup > .picture {
   flex: 0;
+  align-self: center;
 }
 
 .ModelsGroup > .models {
   flex: 1;
+  align-self: center;
 }
 
 .Model-line {
@@ -150,7 +157,7 @@ ul > li.active {
   position: relative;
   z-index: 10;
   color: white;
-  padding: 10px;
+  padding: 5px 15px;
 }
 
 .tapped:hover {
@@ -158,13 +165,28 @@ ul > li.active {
 }
 
 .tapped::before {
-  content: ' ';
+  content: '';
   display: block;
-  background-color: black;
+  background-color: #333;
   position: absolute;
+  top: 0px;
+  left: 0px;
   width: 100%;
   height: 100%;
   z-index: -4;
+  transform: rotate(-2deg);
+}
+
+.tapped::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: -5;
+  transform: rotate(4deg);
 }
 
 @keyframes rainbow_pouet {
@@ -177,4 +199,32 @@ ul > li.active {
   100% {
     background-position: 0% 82%;
   }
+}
+
+.tapped.red::after {
+  background-color: #e81d1d;
+}
+
+.tapped.orange::after {
+  background-color: #e8b71d;
+}
+
+.tapped.yellow::after {
+  background-color: #e3e81d;
+}
+
+.tapped.green::after {
+  background-color: #1de840;
+}
+
+.tapped.cyan::after {
+  background-color: #1ddde8;
+}
+
+.tapped.blue::after {
+  background-color: #2b1de8;
+}
+
+.tapped.purple::after {
+  background-color: #dd00f3;
 }

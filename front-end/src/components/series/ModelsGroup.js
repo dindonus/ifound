@@ -7,7 +7,9 @@ const ModelsGroup = ({ models, image }) => (
       <img src={image} alt="iphone" height="150px" />
     </div>
     <div className="models">
-      {models.map(model => (model ? <Model model={model} /> : '...'))}
+      {models.map(
+        (model, index) => (model ? <Model key={index} model={model} /> : '...')
+      )}
     </div>
   </div>
 );

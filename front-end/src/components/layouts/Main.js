@@ -11,7 +11,7 @@ const Main = ({ children }) => (
       </div>
       <div className="Main-content">{children}</div>
     </div>
-    <div className="Main-footer" />
+    <div className="Main-footer">FOOTER</div>
   </div>
 );
 
