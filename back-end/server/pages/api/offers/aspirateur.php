@@ -6,6 +6,8 @@ class Page extends ParentApi {
 
 	public function prepare() {
 
+		sleep(1);
+
 		list($model) = explode('/', POUSSIERE);
 		$location = trim((string) autoGet('location', ''));
 

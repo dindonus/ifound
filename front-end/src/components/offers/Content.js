@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Filters from './Filters';
-import Offer from './Offer';
+import Offers from './Offers';
 import { fetchByModel } from '../../services/offers';
 import { findBySlug } from '../../services/models';
 import debounce from 'lodash/debounce';
@@ -12,6 +12,7 @@ class Content extends Component {
     this.onFiltersChange = this.onFiltersChange.bind(this);
     this.refetchOffers = debounce(this.refetchOffers.bind(this), 300);
     this.state = {
+      loading: true,
       model: null,
       offers: [],
       filters: { price: 2000, capacity: 32, location: '' }
@@ -24,6 +25,7 @@ class Content extends Component {
       const [model, offers] = values;
       this.setState((previousState, props) => {
         const state = { ...previousState };
+        state.loading = false;
         state.model = model;
         state.offers = offers;
         return state;
@@ -44,9 +46,16 @@ class Content extends Component {
   }
 
   refetchOffers() {
+    this.setState((previousState, props) => {
+      const state = { ...previousState };
+      state.loading = true;
+      state.offers = [];
+      return state;
+    });
     fetchByModel(this.state.model.slug, this.state.filters).then(offers => {
       this.setState((previousState, props) => {
         const state = { ...previousState };
+        state.loading = false;
         state.offers = offers;
         return state;
       });
@@ -55,7 +64,6 @@ class Content extends Component {
 
   render() {
     const offers = this.getFilteredOffers();
-    const average = this.getAveragePrice(offers);
     return (
       <div>
         <Filters
@@ -63,13 +71,7 @@ class Content extends Component {
           activeFilters={this.state.filters}
         />
         <hr />
-        <p className="">
-          Résultat :
-          {offers.length} offres - prix moyen : {average.toFixed(0)} €
-        </p>
-        <div className="Offers">
-          {offers.map((offer, index) => <Offer key={index} data={offer} />)}
-        </div>
+        <Offers loading={this.state.loading} offers={offers} />
       </div>
     );
   }
@@ -78,11 +80,6 @@ class Content extends Component {
     return this.state.offers
       .filter(offer => offer.price < this.state.filters.price)
       .filter(offer => offer.capacity >= this.state.filters.capacity);
-  }
-
-  getAveragePrice(offers) {
-    const sum = offers.reduce((acc, offer) => offer.price + acc, 0);
-    return sum / (offers.length || 1);
   }
 }
 
