@@ -42,7 +42,7 @@ body {
   background-color: rgba(0, 0, 0, 0.1);
   line-height: 0.9;
   text-align: center;
-  font-size: 200px;
+  font-size: 160px;
   font-weight: 100;
   font-family: 'settledown';
 }
@@ -189,7 +189,7 @@ ul > li.active {
   transform: rotate(4deg);
 }
 
-@keyframes rainbow_pouet {
+@keyframes rainbow {
   0% {
     background-position: 0% 82%;
   }
