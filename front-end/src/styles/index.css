@@ -15,6 +15,10 @@ body {
   background-image: url(https://learnnode.com/images/NODE/pattern.svg);
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 .Main-navbar {
   color: white;
   font-size: 30px;
@@ -32,6 +36,17 @@ body {
   );
   background-size: 1800% 1800%;
   animation: rainbow 20s ease infinite;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  z-index: 20;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.3);
+  transition: all 0.1s linear;
+  height: 55px;
+}
+
+.Main-navbar.small {
+  top: -50px;
 }
 
 .Main-navbar a {
@@ -50,6 +65,7 @@ body {
 .Content-header {
   background-color: rgba(0, 0, 0, 0.8);
   padding: 20px;
+  padding-top: 75px;
   color: white;
   text-align: center;
 }
