@@ -1,7 +1,7 @@
 {
 	"project": {
 		"name": "iFound",
-		"url": "http://ifound.dev/",
+		"url": "http://ifound.localhost/",
 		"timezone": "Europe/Paris",
 		"debug": true,
 		"monitoring": 0
