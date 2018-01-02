@@ -2,9 +2,9 @@
 
 class InfoTags extends Information {
 
-	protected function charge() {
+	protected function initialize() {
 
-		$this->igInfo = [
+		$this->data = [
 
 			// Models
 			/*

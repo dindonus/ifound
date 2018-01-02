@@ -4,7 +4,7 @@ class Page extends ParentApi {
 
 	protected $description = 'All offers by model';
 
-	public function prepare() {
+	public function run() {
 
 		sleep(1);
 

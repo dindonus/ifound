@@ -2,7 +2,7 @@
 
 class Page extends ParentCommand {
 
-  public function prepare() {
+  public function run() {
 
     $this->table('items')
       ->set('model', null)
@@ -30,7 +30,7 @@ class Page extends ParentCommand {
         }
     }
 
-    return new Stop();
+    return new Done();
 
   }
 

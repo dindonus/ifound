@@ -4,13 +4,13 @@ abstract class ParentApi extends EcranPlat {
 
 	protected $description = 'Default API description';
 
-	protected function preparePrincipal() {
+	protected function parentRun() {
 
 		Translation::setNativeLanguage('fr');
 		Translation::setAvailableLanguage('fr');
 		Translation::setLanguage('fr');
 
-		$data = $this->prepare();
+		$data = $this->run();
 
 		header('Access-Control-Allow-Origin: *');
 
@@ -20,12 +20,6 @@ abstract class ParentApi extends EcranPlat {
 			'payload' => $data,
 		]);
 
-	}
-
-	protected function affichePrincipal() {
-	}
-
-	protected function postAffiche() {
 	}
 
 }

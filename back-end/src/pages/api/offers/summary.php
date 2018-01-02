@@ -4,7 +4,7 @@ class Page extends ParentApi {
 
 	protected $description = 'Statistics summary';
 
-	public function prepare() {
+	public function run() {
 
 		$stats = $this->table('items')
 			->select(['slug' => 'model', 'availables' => 'COUNT(*)', 'price' => 'AVG(price)'])

@@ -2,20 +2,14 @@
 
 abstract class ParentCommand extends EcranPlat {
 
-	protected function preparePrincipal() {
+	protected function parentRun() {
 
 		Translation::setNativeLanguage('fr');
 		Translation::setAvailableLanguage('fr');
 		Translation::setLanguage('fr');
 
-		return $this->prepare();
+		return $this->run();
 
-	}
-
-	protected function affichePrincipal() {
-	}
-
-	protected function postAffiche() {
 	}
 
 }

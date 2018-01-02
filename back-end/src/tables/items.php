@@ -2,7 +2,7 @@
 
 class TableItems extends Table {
 
-	public $champ = [
+	public $fields = [
 		'reference' => ['bigint', 'unsigned'],
 		'model' => ['varchar', 255, null, true],
 		'capacity' => ['smallint', 'unsigned', null, true],

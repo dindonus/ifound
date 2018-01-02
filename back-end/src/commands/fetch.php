@@ -4,14 +4,14 @@ use Carbon\Carbon;
 
 class Page extends ParentCommand {
 
-  public function prepare() {
+  public function run() {
 
     for ($page = autoArg('from', 1); $page <= autoArg('to', 10); $page++) {
       echo "Page $page: ";
       $this->scanPage($page);
     }
 
-    return new Stop();
+    return new Done();
 
   }
 
