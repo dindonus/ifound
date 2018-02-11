@@ -10,16 +10,3 @@ const OffersIndex = props => (
 );
 
 export default OffersIndex;
-
-/*
-  const HeaderWithParams = () => <Header model={model} />;
-  const ContentWithParams = () => <Content model={model} />;
-  return (
-    <div>
-      <ContentPresenter
-        header={HeaderWithParams}
-        body={ContentWithParams}
-      />
-    </div>
-  );
-*/

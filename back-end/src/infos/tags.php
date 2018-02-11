@@ -18,7 +18,6 @@ class InfoTags extends Information {
 				'name' => "iPhone 4s",
 				'type' => 'model',
 			],
-			*/
 			3 => [
 				'slug' => 'iphone-5',
 				'name' => "iPhone 5",
@@ -34,6 +33,7 @@ class InfoTags extends Information {
 				'name' => "iPhone 5c",
 				'type' => 'model',
 			],
+			*/
 			6 => [
 				'slug' => 'iphone-6',
 				'name' => "iPhone 6",
@@ -79,13 +79,11 @@ class InfoTags extends Information {
 				'name' => "iPhone 8 Plus",
 				'type' => 'model',
 			],
-			/*
 			15 => [
 				'slug' => 'iphone-x',
 				'name' => "iPhone X",
 				'type' => 'model',
 			],
-			*/
 
 			// Colors
 			200 => [
